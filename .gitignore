@@ -1,3 +1,4 @@
 backend/node_modules
 backend/tmp/
 backend/package-lock.json
+backend/module/motion-detect/motion-detect.js

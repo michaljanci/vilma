@@ -2,7 +2,7 @@ const global = require("./module/globalFunction/globalFunction.js");
 const motion = require("./module/motion-detect/motion-detect.js");
 const lights = require("./module/controlOfLights/controlOfLights.js");
 const switches = require("./module/switches/switches.js");
-//const extender = require("./module/extender/extender.js");
+const extender = require("./module/extender/extender.js");
 //const LED = require("./module/PIRControlLed/PIRControlLed.js");
 //const alarm = require("./module/PIRControlAlarm/PIRControlAlarm.js");
 //const notification = require("./module/globalFunction/notification.js");
@@ -30,7 +30,7 @@ io.on("connection", socket => {
   socket.on("button update event", function(data) {
     switches.switchSelector(data.status.substr(2, 8), data.status.substr(0, 1));
   });
-
+ 
   socket.on("slider update event", function(data) {
     if (data.status.substr(0, 3) === "dim") {
       console.log(lights.dimInvert(data.status.substr(4, 4)));
